@@ -1,12 +1,9 @@
-import styled, { css } from "styled-components";
-import { ButtonProps } from "./MyButton.types";
+import styled from "styled-components";
+import { ButtonProps } from "./Button.types";
 
 const StyledButton = styled.button<ButtonProps>`
-  color: ${({ primary }) => (primary ? "white" : "#000")};
-  background: ${({ primary, backgroundColor }) =>
-    primary ? "#000" : backgroundColor || "transparent"};
-  box-shadow: ${({ primary }) =>
-    primary ? "none" : "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset"};
+  color: ${({ textColor }) => textColor || "#000"};
+  background-color: ${({ backgroundColor }) => backgroundColor || "#ddd"};
   border-radius: 10px;
   border: none;
   margin: 0.5em 1em;
@@ -28,32 +25,29 @@ const StyledButton = styled.button<ButtonProps>`
   text-transform: uppercase;
   font-family: Arial, sans-serif;
   font-weight: bold;
-
+  display: ${({ hidden }) => (hidden ? "none" : "block")};
   &:hover {
-    ${({ hover }) =>
-      hover &&
-      css`
-        background: linear-gradient(to bottom, #b4d833, #46d10a);
-      `}
+    background: ${({ disabled }) =>
+      disabled ? null : "linear-gradient(to bottom, #2aaaff, #8dc5f9)"};
   }
 `;
 
 export const Button = ({
-  primary,
-  hover,
   backgroundColor,
   size = "medium",
   label,
   disabled,
+  textColor,
+  hidden,
 }: ButtonProps) => {
   return (
     <StyledButton
       type="button"
-      primary={primary}
-      hover={hover}
       disabled={disabled}
       size={size}
       backgroundColor={backgroundColor}
+      textColor={textColor}
+      hidden={hidden}
     >
       {label}
     </StyledButton>

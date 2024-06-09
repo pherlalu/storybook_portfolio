@@ -17,14 +17,41 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## amper_steffi_coding_assignment12
+
+This project was bootstrapped with Create React App and containerized using Docker.
+
+### Project Setup
+
+First, clone the repository to your local machine:
+git clone https://github.com/pherlalu/storybook_portfolio.git
+
+## Docker
+
+This application is containerized using Docker. You can build and run the application using Docker.
+
+## Building the Docker Image
+
+To build the Docker image, navigate to the project directory and run:
+
+docker image build -t amper_steffi_coding_assignment12:latest .
+
+This command builds a Docker image with the tag amper_steffi_coding_assignment12.
+
+### Running the Docker Container
+
+To run the Docker container, use the following command:
+
+docker run -dp 8083:6006 --name amper_steffi_coding_assignment12 amper_steffi_coding_assignment12:latest

@@ -1,6 +1,6 @@
 export interface ButtonProps {
-  hover?: boolean;
-  primary?: boolean;
+  hidden?: boolean;
+  textColor?: string;
   backgroundColor?: string;
   size?: "small" | "medium" | "large";
   label?: string;
