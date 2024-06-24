@@ -32,6 +32,10 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
+export function sum(a: number, b: number) {
+  return a + b;
+}
+
 export const Button = ({
   backgroundColor,
   size = "medium",

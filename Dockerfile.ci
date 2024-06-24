@@ -1,0 +1,14 @@
+# pull official base image
+FROM node:21-bullseye
+
+# set working directory
+WORKDIR /amper_steffi_ui_garden/
+
+# install app dependencies
+COPY package*.json .
+RUN npm ci
+RUN npx playwright install --with-deps chromium
+COPY . .
+
+# start app
+CMD ["npm","run","ci:test"]
