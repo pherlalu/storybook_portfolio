@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ButtonProps } from "./Button.types";
+import { getCursorStyle } from "./Button.lib";
 
 const StyledButton = styled.button<ButtonProps>`
   color: ${({ textColor }) => textColor || "#000"};
@@ -20,7 +21,7 @@ const StyledButton = styled.button<ButtonProps>`
         return "160px";
     }
   }};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled = false }) => getCursorStyle(disabled)};
   opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
   text-transform: uppercase;
   font-family: Arial, sans-serif;
@@ -32,10 +33,6 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-export function sum(a: number, b: number) {
-  return a + b;
-}
-
 export const Button = ({
   backgroundColor,
   size = "medium",
@@ -43,6 +40,7 @@ export const Button = ({
   disabled,
   textColor,
   hidden,
+  onClick,
 }: ButtonProps) => {
   return (
     <StyledButton
@@ -52,6 +50,8 @@ export const Button = ({
       backgroundColor={backgroundColor}
       textColor={textColor}
       hidden={hidden}
+      onClick={onClick}
+      data-testid="ButtonElement"
     >
       {label}
     </StyledButton>

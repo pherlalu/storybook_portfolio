@@ -1,5 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { CardProps, ContainerProps } from "./Card.types";
+import { renderCard } from "./Card.lib";
 
 const StyledContainer = styled.div<ContainerProps>`
   background-color: ${({ backgroundColor }) => backgroundColor || "#ddd"};
@@ -33,23 +35,21 @@ const StyledPhoto = styled.img`
   margin-bottom: 1rem;
 `;
 
-export const Card = ({
-  title,
-  content,
-  image,
-  disabled,
-  hidden,
-  backgroundColor,
-  titleColor,
-  descriptionColor,
-}: CardProps) => (
-  <StyledContainer
-    disabled={disabled}
-    hidden={hidden}
-    backgroundColor={backgroundColor}
-  >
-    {image && <StyledPhoto src={image} />}
-    <Title titleColor={titleColor}>{title}</Title>
-    <Description descriptionColor={descriptionColor}>{content}</Description>
-  </StyledContainer>
-);
+export const Card: React.FC<CardProps> = (props) => {
+  const cardProps = renderCard(props);
+
+  return (
+    <StyledContainer
+      disabled={cardProps.disabled}
+      hidden={cardProps.hidden}
+      backgroundColor={cardProps.backgroundColor}
+      data-testid="CardElement"
+    >
+      {cardProps.image && <StyledPhoto src={cardProps.image} />}
+      <Title titleColor={cardProps.titleColor}>{cardProps.title}</Title>
+      <Description descriptionColor={cardProps.descriptionColor}>
+        {cardProps.content}
+      </Description>
+    </StyledContainer>
+  );
+};

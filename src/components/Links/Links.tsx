@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { LinkProps } from "./Links.types";
 
-export const Links = styled.a<LinkProps>`
+const StyledLinks = styled.a<LinkProps>`
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   color: ${({ color }) => color || "#000"};
@@ -18,3 +18,25 @@ export const Links = styled.a<LinkProps>`
   }
   font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
 `;
+
+export const Links = ({
+  color,
+  bgColor,
+  disabled,
+  hidden,
+  children,
+  href,
+}: LinkProps) => {
+  return (
+    <StyledLinks
+      href={href}
+      color={color}
+      bgColor={bgColor}
+      disabled={disabled}
+      hidden={hidden}
+      data-testid="LinksElement"
+    >
+      {children}
+    </StyledLinks>
+  );
+};

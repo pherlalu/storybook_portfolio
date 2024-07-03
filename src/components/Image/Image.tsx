@@ -42,6 +42,7 @@ export const Image: React.FC<ImageProps & ImageWrapperProps> = ({
         disabled={disabled}
         size={size}
         hidden={hidden}
+        data-testid="ImageElement"
       />
     </ImageWrapper>
   );

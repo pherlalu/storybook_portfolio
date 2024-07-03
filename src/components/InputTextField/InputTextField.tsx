@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { InputProps } from "./InputTextField.types";
 
-export const InputTextField = styled.input<InputProps>`
+const StyledInputTextField = styled.input<InputProps>`
   width: 100%;
   padding: 0.5em;
   border: none;
@@ -19,3 +19,23 @@ export const InputTextField = styled.input<InputProps>`
     cursor: not-allowed;
   }
 `;
+
+export const InputTextField = ({
+  backgroundColor,
+  placeholder,
+  value,
+  disabled,
+  hidden,
+}: InputProps) => {
+  return (
+    <StyledInputTextField
+      type="text"
+      disabled={disabled}
+      value={value}
+      placeholder={placeholder}
+      backgroundColor={backgroundColor}
+      hidden={hidden}
+      data-testid="InputFieldElement"
+    />
+  );
+};
