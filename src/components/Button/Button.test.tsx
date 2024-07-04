@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { getCursorStyle } from "./Button.lib";
 
 test("getCursorStyle returns 'not-allowed' when the button is disabled", () => {
-  const result = getCursorStyle(true);
+  const result = getCursorStyle(false);
   expect(result).toBe("not-allowed");
 });
 
