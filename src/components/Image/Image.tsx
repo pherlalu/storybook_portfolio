@@ -1,8 +1,7 @@
-// Image.tsx
 import styled from "styled-components";
 import { ImageProps } from "./Image.types";
+import { getOpacityStyle, getDisplayStyle, getCursorStyle } from "./Image.lib";
 
-// Define ImageWrapperProps in this file
 interface ImageWrapperProps {
   bgColor: string;
 }
@@ -16,11 +15,10 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
 const StyledImg = styled.img<ImageProps>`
   width: ${(props) => `${props.size}px`};
   height: auto;
-  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
-  display: ${(props) => (props.hidden ? "none" : "block")};
+  opacity: ${(props) => getOpacityStyle(props.disabled)};
+  display: ${(props) => getDisplayStyle(props.hidden)};
   transition: transform 0.3s;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-
+  cursor: ${(props) => getCursorStyle(props.disabled)};
   &:hover {
     transform: ${(props) => (!props.disabled ? "scale(1.1)" : "none")};
   }

@@ -1,12 +1,21 @@
 import "@testing-library/jest-dom";
-import { getCursorStyle } from "./Button.lib";
+import {
+  getBackgroundColor,
+  getTextColor,
+  getDisplayStyle,
+} from "./InputTextField.lib";
 
-test("getCursorStyle returns 'not-allowed' when the button is disabled", () => {
-  const result = getCursorStyle(true);
-  expect(result).toBe("not-allowed");
+test("getBackgroundColor returns correct background color", () => {
+  expect(getBackgroundColor(true, "blue")).toBe("#fafafa");
+  expect(getBackgroundColor(false, "blue")).toBe("blue");
 });
 
-test("getCursorStyle returns 'pointer' when the button is not disabled", () => {
-  const result = getCursorStyle(false);
-  expect(result).toBe("pointer");
+test("getTextColor returns correct text color", () => {
+  expect(getTextColor(true, "red")).toBe("#cbcbcb");
+  expect(getTextColor(false, "red")).toBe("red");
+});
+
+test("getDisplayStyle returns correct display style", () => {
+  expect(getDisplayStyle(true)).toBe("none");
+  expect(getDisplayStyle(false)).toBe("block");
 });

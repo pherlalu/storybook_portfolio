@@ -1,12 +1,18 @@
 import "@testing-library/jest-dom";
-import { getCursorStyle } from "./Button.lib";
+// Image.test.ts
+import { getOpacityStyle, getDisplayStyle, getCursorStyle } from "./Image.lib";
 
-test("getCursorStyle returns 'not-allowed' when the button is disabled", () => {
-  const result = getCursorStyle(true);
-  expect(result).toBe("not-allowed");
+test("getOpacityStyle returns correct opacity style based on disabled prop", () => {
+  expect(getOpacityStyle(true)).toBe("0.5");
+  expect(getOpacityStyle(false)).toBe("1");
 });
 
-test("getCursorStyle returns 'pointer' when the button is not disabled", () => {
-  const result = getCursorStyle(false);
-  expect(result).toBe("pointer");
+test("getDisplayStyle returns correct display style based on hidden prop", () => {
+  expect(getDisplayStyle(true)).toBe("none");
+  expect(getDisplayStyle(false)).toBe("block");
+});
+
+test("getCursorStyle returns correct cursor style based on disabled prop", () => {
+  expect(getCursorStyle(true)).toBe("not-allowed");
+  expect(getCursorStyle(false)).toBe("pointer");
 });

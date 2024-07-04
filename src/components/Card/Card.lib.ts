@@ -1,4 +1,3 @@
-// Card.lib.ts
 import { CardProps } from "./Card.types";
 
 export const renderCard = ({

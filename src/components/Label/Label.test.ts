@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
-import { getCursorStyle } from "./Button.lib";
+import { getCursorStyle, getVisibilityStyle } from "./Label.lib";
 
-test("getCursorStyle returns 'not-allowed' when the button is disabled", () => {
-  const result = getCursorStyle(true);
-  expect(result).toBe("not-allowed");
+test("getCursorStyle returns correct cursor style", () => {
+  expect(getCursorStyle(true)).toBe("not-allowed");
+  expect(getCursorStyle(false)).toBe("pointer");
 });
 
-test("getCursorStyle returns 'pointer' when the button is not disabled", () => {
-  const result = getCursorStyle(false);
-  expect(result).toBe("pointer");
+test("getVisibilityStyle returns correct visibility", () => {
+  expect(getVisibilityStyle(true)).toBe("hidden");
+  expect(getVisibilityStyle(false)).toBe("visible");
 });

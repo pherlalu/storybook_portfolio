@@ -21,7 +21,7 @@ export const Default = Template.bind({});
 Default.args = {
   backgroundColor: "white",
   placeholder: "Input a text..",
-  hidden: true,
+  hidden: false,
 };
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);

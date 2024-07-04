@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import { InputProps } from "./InputTextField.types";
+import {
+  getBackgroundColor,
+  getTextColor,
+  getDisplayStyle,
+} from "./InputTextField.lib";
 
 const StyledInputTextField = styled.input<InputProps>`
   width: 100%;
@@ -9,9 +14,9 @@ const StyledInputTextField = styled.input<InputProps>`
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   background-color: ${({ disabled, backgroundColor }) =>
-    disabled ? "#fafafa" : backgroundColor};
-  color: ${({ disabled, textColor }) => (disabled ? "#cbcbcb" : textColor)};
-  display: ${({ hidden }) => (hidden ? "block" : "none")};
+    getBackgroundColor(disabled, backgroundColor)};
+  color: ${({ disabled, textColor }) => getTextColor(disabled, textColor)};
+  display: ${({ hidden }) => getDisplayStyle(hidden)};
   &:focus {
     box-shadow: 0px 0px 5px 0px rgba(0, 123, 255, 0.5);
   }
