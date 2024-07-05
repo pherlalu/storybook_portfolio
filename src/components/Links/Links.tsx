@@ -1,20 +1,32 @@
 import styled from "styled-components";
 import { LinkProps } from "./Links.types";
+import {
+  getColorStyle,
+  getCursorStyle,
+  getVisibilityStyle,
+  getHoverColorStyle,
+} from "./Links.lib";
 
-export const Links = styled.a<LinkProps>`
+const StyledLinks = styled.a<LinkProps>`
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
-  color: ${({ color }) => color || "#000"};
+  color: ${({ color }) => getColorStyle(color)};
   background-color: ${({ bgColor }) => bgColor || "transparent"};
   opacity: ${(props) => (props.disabled ? "0.5" : "1")};
-  background-color: ${(props) => props.bgColor};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "default")};
-  visibility: ${({ hidden }) => (hidden ? "hidden" : "visible")};
+  cursor: ${({ disabled }) => getCursorStyle(disabled)};
+  visibility: ${({ hidden }) => getVisibilityStyle(hidden)};
   text-decoration: none;
 
   &:hover {
-    color: ${({ disabled, color }) =>
-      !disabled ? color || "#3b8026" : "grey"};
+    color: ${({ disabled, color }) => getHoverColorStyle(disabled, color)};
   }
   font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
 `;
+
+export const Links = (props: LinkProps) => {
+  return (
+    <StyledLinks {...props} data-testid="LinksElement">
+      {props.children}
+    </StyledLinks>
+  );
+};

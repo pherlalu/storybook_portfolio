@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
 import { TextProps } from "./Text.types";
+import { getColorStyle, getCursorStyle, getVisibilityStyle } from "./Text.lib";
 
-export const Text = styled.p<TextProps>`
+const StyledText = styled.p<TextProps>`
   font-family: "Montserrat", sans-serif;
-  color: ${({ color }) => color || "#000"};
+  color: ${({ color = "#000" }) => getColorStyle(color)};
   background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "default")};
-  visibility: ${({ hidden }) => (hidden ? "hidden" : "visible")};
+  cursor: ${({ disabled }) => getCursorStyle(disabled)};
+  visibility: ${({ hidden }) => getVisibilityStyle(hidden)};
   opacity: ${(props) => (props.disabled ? "0.5" : "1")};
   ${({ size }) => {
     switch (size) {
@@ -30,3 +31,11 @@ export const Text = styled.p<TextProps>`
   }}
   font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
 `;
+
+export const Text = (props: TextProps) => {
+  return (
+    <StyledText {...props} data-testid="TextElement">
+      {props.children}
+    </StyledText>
+  );
+};

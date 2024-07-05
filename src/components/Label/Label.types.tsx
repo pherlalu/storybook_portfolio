@@ -1,6 +1,7 @@
 export interface LabelProps {
+  color?: string;
+  backgroundColor?: string;
   disabled?: boolean;
   hidden?: boolean;
-  backgroundColor?: string;
   children: React.ReactNode;
 }
