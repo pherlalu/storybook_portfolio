@@ -7,7 +7,6 @@ export interface SocialLink {
 
 export interface AboutProps {
   profileImage: string;
-  name: string;
   description: string;
   moreInfo1?: string;
   moreInfo2?: string;

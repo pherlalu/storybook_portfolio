@@ -3,15 +3,16 @@ import videoPort from "./assets/video_portfolio.mp4";
 import About from "./components/About/About";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImage from "./assets/steffi.png";
 import "./App.css";
 
 const socialLinks = [
-  { href: "https://twitter.com", icon: FaTwitter },
-  { href: "https://instagram.com", icon: FaInstagram },
-  { href: "https://github.com", icon: FaGithub },
-  { href: "https://linkedin.com", icon: FaLinkedin },
+  { href: "https://twitter.com/PHERLALU", icon: FaTwitter },
+  { href: "https://www.instagram.com/panyangamper/", icon: FaInstagram },
+  { href: "https://github.com/pherlalu", icon: FaGithub },
+  { href: "https://www.linkedin.com/in/steffi-amper/", icon: FaLinkedin },
 ];
 
 const galleryImages = [
@@ -24,12 +25,11 @@ const galleryImages = [
 function App() {
   return (
     <>
-      <Hero videoSrc={videoPort} description="Hello I am Steffi!😉" />
+      <Hero videoSrc={videoPort} description="Hello I am Steffi! 😉" />
       <About
         profileImage={profileImage}
-        name="Full Stack Developer and wannabe cat."
-        description="I love software development!"
-        moreInfo1="For the past 7 years, I’ve been privileged to work in the field of software development. During this time, I’ve had the opportunity to engage with a variety of software platforms, including mobile applications, desktop applications, and web applications. It’s been an enriching experience."
+        description="I love software development! That's for sure! 🫶"
+        moreInfo1="For the past 8  years, I’ve been privileged to work in the field of software development. During this time, I’ve had the opportunity to engage with a variety of software platforms, including mobile applications, desktop applications, and web applications."
         moreInfo2="While I’ve gained a fair amount of experience in software development, I’m always aware that there’s so much more to learn. I’ve been able to deliver software solutions on time and have become familiar with several programming languages such as Javascript, React, VueJS, PHP, Java, among others. I’ve also had the chance to be expose into software development methodologies like Agile and Scrum."
         moreInfo3="One of the aspects I value most about my work is the opportunity to understand client needs and translate them into software solutions. I’ve been involved in all stages of the software development lifecycle, from the initial concept and design to testing, deployment, and maintenance."
         moreInfo4="I’ve had some exposure to modern frameworks and technologies such as ReactJS and VueJS in the area of web application development. I strive to create responsive and intuitive web applications that can enhance user experience and contribute to business growth."
@@ -39,6 +39,7 @@ function App() {
       />
       <Portfolio />
       <Contact />
+      <Footer />
     </>
   );
 }

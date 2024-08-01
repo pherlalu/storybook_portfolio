@@ -1,15 +1,43 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+@keyframes auroraAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 100%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  75% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
 
 #root {
   margin: 0 auto;
-  text-align: center;
-  background: #000;
+  background: linear-gradient(
+    135deg,
+    #0d0d0d,
+    #1a1a1a,
+    #4e54c8,
+    #2c3e50,
+    #004d00
+  );
+  background-size: 400% 400%;
+  animation: auroraAnimation 20s ease-in-out infinite;
   color: white;
 }
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 h2,
@@ -17,23 +45,14 @@ h3 {
   font-family: "Montserrat", sans-serif;
 }
 
-/* Timeline Styles */
-.timeline {
-  position: relative;
-  padding: 1rem 0;
+.custom-image {
+  width: 20rem;
+  height: 20rem;
 }
 
-.timeline-item {
-  position: relative;
-  opacity: 0;
-  transform: translateY(10px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.timeline-item.show {
-  animation: fadeInUp 1s forwards;
+.custom-margin {
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 @keyframes fadeInUp {
