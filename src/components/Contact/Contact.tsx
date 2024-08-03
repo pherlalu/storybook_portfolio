@@ -26,6 +26,12 @@ const Contact = () => {
                 className="border border-gray-600 p-3 rounded bg-gray-700 text-white"
               />
             </div>
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="mb-4 border border-gray-600 rounded px-4 py-2 w-full bg-gray-700 text-white"
+            />
             <div className="mb-4">
               <textarea
                 name="message"

@@ -4,6 +4,7 @@ import About from "./components/About/About";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import Projects from "./components/Projects/Projects";
 import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImage from "./assets/steffi.png";
 import "./App.css";
@@ -38,6 +39,7 @@ function App() {
         galleryImages={galleryImages}
       />
       <Portfolio />
+      <Projects />
       <Contact />
       <Footer />
     </>
