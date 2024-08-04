@@ -42,7 +42,7 @@ const TimelineElement = ({
     >
       <h3 className="Welcome-text font-bold text-lg">{title}</h3>
       <h4 className="text-gray-300 text-base font-semibold mb-1">{location}</h4>
-      <p className="text-gray-400 italic text-sm">{description}</p>
+      <p className="text-indigo-100 italic text-sm">{description}</p>
     </VerticalTimelineElement>
   );
 };

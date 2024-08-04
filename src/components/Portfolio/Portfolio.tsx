@@ -50,31 +50,33 @@ const Portfolio: React.FC = () => {
   ];
 
   return (
-    <section id="Timeline">
-      <SectionHeader
-        title="Career Journey."
-        subtitle="Over the years, I have had an opportunity to work with the following reputable companies and freelance clients."
-      />
+    <div className="max-w-5xl mx-auto p-8  text-white relative">
+      <section id="Timeline">
+        <SectionHeader
+          title="Career Journey."
+          subtitle="Over the years, I have had an opportunity to work with the following reputable companies and freelance clients."
+        />
 
-      <VerticalTimeline animate={true}>
-        {caseStudies.map((caseStudy) => (
-          <TimelineElement
-            key={caseStudy.id}
-            id={caseStudy.id}
-            date={caseStudy.date}
-            title={caseStudy.title}
-            location={caseStudy.location}
-            description={caseStudy.description}
-            type={caseStudy.type as "work" | "education" | undefined}
-          />
-        ))}
-      </VerticalTimeline>
-      <div className="text-center mt-12">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          See Resume
-        </button>
-      </div>
-    </section>
+        <VerticalTimeline animate={true}>
+          {caseStudies.map((caseStudy) => (
+            <TimelineElement
+              key={caseStudy.id}
+              id={caseStudy.id}
+              date={caseStudy.date}
+              title={caseStudy.title}
+              location={caseStudy.location}
+              description={caseStudy.description}
+              type={caseStudy.type as "work" | "education" | undefined}
+            />
+          ))}
+        </VerticalTimeline>
+        <div className="text-center mt-12">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            See Resume
+          </button>
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -28,14 +28,14 @@ const Title = styled.h2<ContainerProps>`
 `;
 
 const Description = styled.p<ContainerProps>`
-  color: ${({ descriptionColor }) => descriptionColor || "#bbb"};
+  color: ${({ descriptionColor }) => descriptionColor || "#dbd5e7"};
   word-wrap: break-word;
   opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
   flex-grow: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit the number of lines */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
 

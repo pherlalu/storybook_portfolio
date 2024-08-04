@@ -47,8 +47,8 @@ const About: React.FC<AboutProps> = ({
   };
 
   return (
-    <div className="max-w-8xl p-8 text-white relative custom-margin">
-      <div className="flex flex-col md:flex-row items-start md:items-start md:space-x-12">
+    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 text-white">
+      <div className="flex flex-col md:flex-row items-start md:space-x-12">
         <div className="mt-12 mb-12 text-center relative space-y-6 flex-1">
           <motion.div
             ref={socialLinksRef}
@@ -127,7 +127,7 @@ const About: React.FC<AboutProps> = ({
 
       {isInfoVisible && (
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

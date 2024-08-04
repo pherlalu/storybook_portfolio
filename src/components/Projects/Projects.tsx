@@ -11,7 +11,7 @@ export const projectsData = [
   {
     id: 1,
     src: portfolio_v1,
-    title: "Portfolio version 1",
+    title: "Portfolio v.1.0",
     description:
       "Web application portfolio using HTML, CSS and Javasrcipt showcasing my skills, experiences, and projects.",
     sourceUrl: "https://steffiamper.000webhostapp.com/",
@@ -19,10 +19,20 @@ export const projectsData = [
     githubUrl: "",
     startDate: "2021-12-25",
     endDate: "2023-06-01",
-    technologyStack: ["HTML", "CSS", "Javascript", "Github"],
-    features: [],
-    challenges: [],
-    accomplishments: [],
+    technologyStack: ["HTML", "CSS", "Javascript", "Github", "000webhost"],
+    features: [
+      "Clean and professional design to highlight key projects and skills.",
+      "Responsive layout ensuring compatibility across various devices.",
+    ],
+    challenges: [
+      "Designing a user-friendly navigation experience for easy exploration of projects and information.",
+      "Managing hosting and deployment issues to ensure reliable site performance.",
+    ],
+    accomplishments: [
+      "Successfully developed and deployed my first portfolio to present my career journey so far.",
+      "Received positive feedback from peers and mentors for the portfolio's design and functionality.",
+      "Gained experience in front-end development and website deployment processes.",
+    ],
   },
   {
     id: 2,
@@ -47,12 +57,15 @@ export const projectsData = [
     features: [
       "It will serve as a comprehensive platform for runners and event organizers alike. The website will contain detailed information about upcoming running events, including dates, locations, and the distances available for registration.",
     ],
-    challenges: [],
+    challenges: [
+      "Optimizing database queries and server performance to handle increasing data and user loads efficiently.",
+      "Securing login and access control for different user roles (runners and event organizers) while ensuring data privacy and security.",
+    ],
     accomplishments: [
-      "Content management system that will generate a website consisting of a number of pages.",
-      "Advance Content Search",
-      "Implemented validation rules that are used on the data provided when creating and updating pages.",
-      "PHP Generated Email (using mailtrap.io)",
+      "Created a robust content management system for generating and managing multiple event-related web pages.",
+      "Implemented a sophisticated search feature allowing users to efficiently find and filter events based on various criteria such as dates, locations, and distances.",
+      "Applied thorough validation rules to ensure data accuracy and integrity when creating and updating pages, enhancing the reliability and quality of the content.",
+      "Configured PHP to generate and send email notifications using Mailtrap.io.",
     ],
   },
   {
@@ -171,19 +184,19 @@ const Projects = () => {
 
   return (
     <div
-      className="items-center justify-center max-w-8xl p-8 relative custom-margin"
+      className="flex flex-col items-center justify-center max-w-8xl p-4 sm:p-6 lg:p-8 relative"
       id="projects"
     >
       <SectionHeader
         title="Featured Projects."
         subtitle="Showcasing my projects aside from work."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6 md:px-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 px-4 md:px-6 lg:px-8">
         {projectsData.map((project) => (
           <div
             key={project.id}
             onClick={() => openModal(project)}
-            className="hover:scale-105 transition-transform duration-300"
+            className="hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <Card
               title={project.title}
