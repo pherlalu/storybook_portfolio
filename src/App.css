@@ -1,24 +1,87 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+@keyframes auroraAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 100%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  75% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
+#root {
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    #0d0d0d,
+    #1a1a1a,
+    #4e54c8,
+    #2c3e50,
+    #004d00
+  );
+  background-size: 400% 400%;
+  animation: auroraAnimation 20s ease-in-out infinite;
+  color: white;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.custom-image {
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-logo {
+  height: auto;
+  max-height: 6em;
+  padding: 1em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
+
+.custom-logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
+
+.custom-logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
+@keyframes custom-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -28,15 +91,77 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  a:nth-of-type(2) .custom-logo {
+    animation: custom-logo-spin infinite 20s linear;
   }
 }
 
-.card {
-  padding: 2em;
+.custom-card {
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.read-the-docs {
+.custom-read-the-docs {
   color: #888;
+}
+
+/* Navbar.css */
+@media (min-width: 640px) {
+  .nav-menu {
+    display: flex;
+  }
+  .nav-menu.mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu.mobile {
+    display: block;
+  }
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #4b5563;
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #f87171;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-logo {
+    padding: 0.5em;
+  }
+
+  .custom-card {
+    padding: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-image {
+    max-width: 15rem;
+  }
+
+  .custom-logo {
+    max-height: 4em;
+    padding: 0.5em;
+  }
 }
