@@ -2,18 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import Typing from "react-typing-effect";
 import Navbar from "../Navbar/Navbar";
+import noVideo from "../../assets/no-video.jpg";
 
+// Define the props interface
 interface HeroProps {
-  videoSrc: string;
-  description: string;
+  disabled?: boolean;
+  videoSrc?: string;
+  description?: string;
 }
 
-const StyledHero = styled.div`
+// Styled components
+const StyledHero = styled.div<{ disabled?: boolean }>`
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background-color: #000;
+  display: ${(props) => (props.disabled ? "flex" : "block")};
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
     height: 75vh;
@@ -73,17 +80,36 @@ const TypingText = styled.div`
   }
 `;
 
-export const Hero: React.FC<HeroProps> = ({ videoSrc, description }) => {
+const NoVideoImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+`;
+
+// Use the props in the functional component
+export const Hero: React.FC<HeroProps> = ({
+  videoSrc,
+  description,
+  disabled,
+}) => {
+  if (disabled) {
+    return (
+      <StyledHero disabled={disabled}>
+        <NoVideoImage src={noVideo} alt="No video available" />
+      </StyledHero>
+    );
+  }
+
   return (
-    <StyledHero>
-      <StyledNavbar>
+    <StyledHero disabled={disabled}>
+      <StyledNavbar className="navbar">
         <Navbar />
       </StyledNavbar>
-      <Video src={videoSrc} autoPlay loop muted />
-      <TypingText>
+      <Video src={videoSrc} autoPlay loop muted data-testid="HeroVideo" />
+      <TypingText className="typing-text">
         <Typing
           text={[
-            description,
+            description || "",
             "Your Go-To Full Stack Developer!😸",
             "Just ping me! Anytime! with your awesome ideas!💡",
           ]}
