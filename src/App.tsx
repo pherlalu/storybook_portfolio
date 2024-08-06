@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Hero from "./components/Hero/Hero";
 import videoPort from "./assets/video_portfolio.mp4";
 import About from "./components/About/About";
