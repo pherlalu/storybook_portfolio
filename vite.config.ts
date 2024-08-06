@@ -7,9 +7,6 @@ export default defineConfig(({}) => {
   const config = {
     plugins: [react()],
     base: process.env.BUILD_PATH_PREFIX || undefined,
-    build: {
-      sourcemap: true,
-    },
   };
 
   if (
