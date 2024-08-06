@@ -36,7 +36,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
-      BUILD_PATH_PREFIX: ${{ github.event.repository.name }}
+      BUILD_PATH_PREFIX: ""
 
     steps:
       - name: Checkout

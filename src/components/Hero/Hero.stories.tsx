@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { userEvent, within } from "@storybook/test";
 import { Hero } from "./Hero";
 import styled from "styled-components";
@@ -29,11 +29,11 @@ const HideElementsWrapper = styled.div`
 `;
 
 const Template: StoryFn<typeof Hero> = (args) => (
-  <HashRouter>
+  <BrowserRouter>
     <HideElementsWrapper>
       <Hero {...args} />
     </HideElementsWrapper>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export const Default = Template.bind({});
