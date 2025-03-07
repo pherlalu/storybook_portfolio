@@ -3,13 +3,23 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import timexLogo from "../../assets/timex-logo.png";
 import fjLogo from "../../assets/fujitsu-logo.png";
+import resume from "../../assets/resume/cv.pdf";
 import TimelineElement from "./TimelineElement";
 import SectionHeader from "../SectionHeader/SectionHeader";
-
 const Portfolio: React.FC = () => {
   const caseStudies = [
     {
       id: 1,
+      date: "2024",
+      title: "Full Stack Developer Coop",
+      location: "Johnston Group Inc.",
+      description:
+        "Johnston Group is  One of Canada's Leading Group Insurance Administrators. Johnston Group offers companies a new way of thinking about how to structure an employee benefit program that meets the employees’ and company’s needs. Johnston Group provides benefit services to more than 30,000 businesses and their employees.",
+      icon: fjLogo,
+      type: "work",
+    },
+    {
+      id: 2,
       date: "2020-2023",
       title: "Application Systems Engineer / Consultant",
       location: "Fujitsu Philippines Inc. (Cebu, Philippines)",
@@ -19,7 +29,7 @@ const Portfolio: React.FC = () => {
       type: "work",
     },
     {
-      id: 2,
+      id: 3,
       date: "2019-2020",
       title: "Freelance Android Developer",
       location: "Finding Doctors App Client (Cebu, Philippines)",
@@ -28,7 +38,7 @@ const Portfolio: React.FC = () => {
       type: "work",
     },
     {
-      id: 3,
+      id: 4,
       date: "2015-2020",
       title: "Software Test Engineer II",
       location: "TMX Philippines, Inc. (Cebu, Philippines)",
@@ -38,7 +48,7 @@ const Portfolio: React.FC = () => {
       type: "work",
     },
     {
-      id: 4,
+      id: 5,
       date: "2010-2015",
       title: "Bachelor of Science in Computer Engineering Graduate",
       location: "De La Salle University - Dasmariñas (Cavite, Philippines)",
@@ -71,9 +81,13 @@ const Portfolio: React.FC = () => {
           ))}
         </VerticalTimeline>
         <div className="text-center mt-12">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <a
+            href={resume}
+            download="Steffi Ann Tanya Amper_Resume.pdf"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
             See Resume
-          </button>
+          </a>
         </div>
       </section>
     </div>
